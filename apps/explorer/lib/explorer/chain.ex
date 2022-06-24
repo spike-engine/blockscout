@@ -62,6 +62,7 @@ defmodule Explorer.Chain do
     Transaction,
     Wei
   }
+
   alias Explorer.ENS.NameRetriever
 
   alias Explorer.Chain.Block.{EmissionReward, Reward}
@@ -1533,7 +1534,9 @@ defmodule Explorer.Chain do
           _ ->
             nil
         end
-      _ -> nil
+
+      _ ->
+        nil
     end
   end
 
@@ -4779,10 +4782,11 @@ defmodule Explorer.Chain do
         block in Block,
         distinct: block.miner_hash,
         select: block.miner_hash,
-        union: ^from(
-          address in Address,
-          select: address.hash
-        )
+        union:
+          ^from(
+            address in Address,
+            select: address.hash
+          )
       )
 
     Repo.stream_reduce(query, initial, reducer)
@@ -4792,14 +4796,15 @@ defmodule Explorer.Chain do
   Gets a lists of all ens names for ens name sanitizer task
   """
   def ens_name_list do
-    query = from(name in Address.Name,
-      where: fragment("?->>'type' = 'ens'", name.metadata),
-      select: name)
+    query =
+      from(name in Address.Name,
+        where: fragment("?->>'type' = 'ens'", name.metadata),
+        select: name
+      )
 
     query
     |> Repo.all(timeout: :infinity)
   end
-
 
   @doc """
   Streams a lists token contract addresses that haven't been cataloged.
@@ -5096,12 +5101,12 @@ defmodule Explorer.Chain do
   end
 
   @spec upsert_address_name(map()) :: {:ok, Instance.t()} | {:error, Ecto.Changeset.t()}
-    def upsert_address_name(params \\ %{}) do
+  def upsert_address_name(params \\ %{}) do
     address_name_changeset = Address.Name.changeset(%Address.Name{}, params)
 
     address_name_opts = [on_conflict: :nothing]
 
-    Repo.insert(address_name_changeset,address_name_opts)
+    Repo.insert(address_name_changeset, address_name_opts)
   end
 
   @doc """
