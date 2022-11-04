@@ -25,6 +25,7 @@ defmodule Explorer.Chain.Transaction do
     Log,
     TokenTransfer,
     Transaction,
+    TransactionActions,
     Wei
   }
 
@@ -259,6 +260,7 @@ defmodule Explorer.Chain.Transaction do
     has_many(:internal_transactions, InternalTransaction, foreign_key: :transaction_hash)
     has_many(:logs, Log, foreign_key: :transaction_hash)
     has_many(:token_transfers, TokenTransfer, foreign_key: :transaction_hash)
+    has_many(:transaction_actions, TransactionActions, foreign_key: :hash)
 
     belongs_to(
       :to_address,
