@@ -2,6 +2,7 @@
 
 ### Features
 
+- [#6433](https://github.com/blockscout/blockscout/pull/6433) - Update error pages
 - [#6407](https://github.com/blockscout/blockscout/pull/6407) - Indexed ratio for int txs fetching stage
 - [#6324](https://github.com/blockscout/blockscout/pull/6324) - Add verified contracts list page
 - [#6379](https://github.com/blockscout/blockscout/pull/6379) - API v2 for frontend

@@ -324,6 +324,8 @@ msgstr ""
 msgid "Average block time"
 msgstr ""
 
+#: lib/block_scout_web/templates/error422/index.html.eex:9
+#: lib/block_scout_web/templates/internal_server_error/index.html.eex:9
 #: lib/block_scout_web/templates/page_not_found/index.html.eex:9
 #: lib/block_scout_web/templates/transaction/not_found.html.eex:30
 #, elixir-autogen, elixir-format
@@ -1441,11 +1443,6 @@ msgstr ""
 msgid "Internal Transactions"
 msgstr ""
 
-#: lib/block_scout_web/templates/transaction/invalid.html.eex:6
-#, elixir-autogen, elixir-format
-msgid "Invalid Transaction Hash"
-msgstr ""
-
 #: lib/block_scout_web/templates/tokens/inventory/index.html.eex:16
 #: lib/block_scout_web/templates/tokens/overview/_tabs.html.eex:19
 #: lib/block_scout_web/views/tokens/overview_view.ex:42
@@ -2345,11 +2342,6 @@ msgstr ""
 msgid "The receive function is executed on a call to the contract with empty calldata. This is the function that is executed on plain Ether transfers (e.g. via .send() or .transfer()). If no such function exists, but a payable fallback function exists, the fallback function will be called on a plain Ether transfer. If neither a receive Ether nor a payable fallback function is present, the contract cannot receive Ether through regular transactions and throws an exception."
 msgstr ""
 
-#: lib/block_scout_web/templates/page_not_found/index.html.eex:8
-#, elixir-autogen, elixir-format
-msgid "The requested path was not found on BlockScout."
-msgstr ""
-
 #: lib/block_scout_web/templates/transaction/overview.html.eex:134
 #, elixir-autogen, elixir-format
 msgid "The revert reason of the transaction."
@@ -3205,11 +3197,6 @@ msgstr ""
 msgid "here."
 msgstr ""
 
-#: lib/block_scout_web/templates/transaction/invalid.html.eex:8
-#, elixir-autogen, elixir-format
-msgid "is not a valid transaction hash"
-msgstr ""
-
 #: lib/block_scout_web/templates/smart_contract/_function_response.html.eex:3
 #, elixir-autogen, elixir-format
 msgid "method Response"
@@ -3423,4 +3410,29 @@ msgstr ""
 #: lib/block_scout_web/templates/layout/app.html.eex:44
 #, elixir-autogen, elixir-format
 msgid "Blocks With Internal Transactions Indexed"
+msgstr ""
+
+#: lib/block_scout_web/templates/internal_server_error/index.html.eex:8
+#, elixir-autogen, elixir-format
+msgid "An unexpected error has occurred. Try reloading the page, or come back soon and try again."
+msgstr ""
+
+#: lib/block_scout_web/templates/internal_server_error/index.html.eex:7
+#, elixir-autogen, elixir-format
+msgid "Internal server error"
+msgstr ""
+
+#: lib/block_scout_web/templates/error422/index.html.eex:7
+#, elixir-autogen, elixir-format
+msgid "Request cannot be processed"
+msgstr ""
+
+#: lib/block_scout_web/templates/page_not_found/index.html.eex:8
+#, elixir-autogen, elixir-format
+msgid "This page is no longer explorable! If you are lost, use the search bar to find what you are looking for."
+msgstr ""
+
+#: lib/block_scout_web/templates/error422/index.html.eex:8
+#, elixir-autogen, elixir-format
+msgid "Your request contained an error, perhaps a mistyped tx/block/address hash. Try again, and check the developer tools console for more info."
 msgstr ""
