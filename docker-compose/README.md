@@ -11,7 +11,7 @@ Runs BlockScout locally in Docker container with usage [docker-compose](https://
 ## Building Docker containers from source
 
 ```
-docker-compose up --build
+
 ```
 
 This command uses by-default `docker-compose.yml`, which build the explorer into Docker image and runs 2 Docker containers:

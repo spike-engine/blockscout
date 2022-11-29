@@ -1,4 +1,4 @@
-FROM bitwalker/alpine-elixir-phoenix:1.13 AS builder
+FROM --  bitwalker/alpine-elixir-phoenix:1.13 AS builder
 
 WORKDIR /app
 
@@ -55,7 +55,9 @@ RUN if [ "$COIN" != "" ]; then \
         sed -i "/msgid \"Ether\"/{n;s/msgstr \"\"/msgstr \"${COIN}\"/g}" apps/block_scout_web/priv/gettext/en/LC_MESSAGES/default.po; \
         sed -i "/msgid \"ETH\"/{n;s/msgstr \"\"/msgstr \"${COIN}\"/g}" apps/block_scout_web/priv/gettext/default.pot; \
         sed -i "/msgid \"ETH\"/{n;s/msgstr \"\"/msgstr \"${COIN}\"/g}" apps/block_scout_web/priv/gettext/en/LC_MESSAGES/default.po; \
-    fi
+        sed -i "/msgid \"Gwei\"/{n;s/msgstr \"\"/msgstr \"G${COIN}\"/g}" apps/block_scout_web/priv/gettext/en/LC_MESSAGES/default.po; \
+        sed -i "/msgid \"wei\"/{n;s/msgstr \"\"/msgstr \"u${COIN}\"/g}" apps/block_scout_web/priv/gettext/en/LC_MESSAGES/default.po; \
+        fi
 
 # Run forderground build and phoenix digest
 RUN mix compile && npm install npm@latest
