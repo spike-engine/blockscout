@@ -9,6 +9,8 @@ services:
       POSTGRES_PASSWORD: 'oasis2022'
     ports:
       - 7432:5432
+    command:
+      --max_connections=4800
     networks:
       default:
         ipv4_address: 192.168.20.4
@@ -38,18 +40,13 @@ services:
     links:
       - db:database
     command: bash -c "bin/blockscout eval \"Elixir.Explorer.ReleaseTasks.create_and_migrate()\" && bin/blockscout start"
-    #    env_file:
-    #      - envs/dev-common-blockscout.env
-    environment:
-      - ETHEREUM_JSONRPC_VARIANT
-      - ETHEREUM_JSONRPC_HTTP_URL
-      - DATABASE_URL
+    env_file:
+      - ./envs/dev-common-blockscout.env
     ports:
       - 4001:4000
     networks:
       default:
         ipv4_address: 192.168.20.5
-
 networks:
   default:
     external:
