@@ -14,6 +14,8 @@ services:
     networks:
       default:
         ipv4_address: 192.168.20.4
+    volumes:
+      - db_data:/var/lib/postgresql/blockscout_data
 
   blockscout:
     container_name: 'blockscout'
@@ -51,3 +53,6 @@ networks:
   default:
     external:
       name: browser
+
+volumes:
+  db_data:
