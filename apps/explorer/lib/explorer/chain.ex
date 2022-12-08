@@ -1167,7 +1167,9 @@ defmodule Explorer.Chain do
     json_rpc_named_arguments = Application.fetch_env!(:indexer, :json_rpc_named_arguments)
     variant = Keyword.fetch!(json_rpc_named_arguments, :variant)
 
-    if variant == EthereumJSONRPC.Ganache || variant == EthereumJSONRPC.Arbitrum do
+    internal_transactions_disabled? = System.get_env("INDEXER_DISABLE_INTERNAL_TRANSACTIONS_FETCHER", "false") == "true"
+
+    if internal_transactions_disabled? do
       true
     else
       with {:transactions_exist, true} <- {:transactions_exist, Repo.exists?(Transaction)},
